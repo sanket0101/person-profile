@@ -1,0 +1,6 @@
+com/nit/novadirectory/config/WebResourceConfiguration.class
+com/nit/novadirectory/NovaDirectoryApplication.class
+com/nit/novadirectory/controller/PersonProfileController.class
+com/nit/novadirectory/repository/PersonProfileRepository.class
+com/nit/novadirectory/api/PersonProfileResource.class
+com/nit/novadirectory/domain/PersonProfile.class

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management Console - Nextgen Institute of Technology</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+
+    <style>
+        body {
+            background-color: #eef1f5;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            padding-top: 60px;
+        }
+        .page-title {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #333;
+        }
+        .card {
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0px 2px 8px rgba(0,0,0,.1);
+        }
+        .btn-primary {
+            font-weight: 500;
+        }
+        table {
+            background: white;
+        }
+        .official-badge {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+        .header-banner {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Official Badge -->
+<a href="https://nextgenittechnologies.com" target="_blank" class="official-badge">
+    Official Institute App
+</a>
+
+
+<div class="container">
+
+    <!-- Header / Banner -->
+    <div class="header-banner">
+        <h2>Best DevOps Training Institute</h2>
+        <p>Join <strong>Nextgen Institute of Technology</strong></p>
+        <p>Call Now: <strong>7875847153</strong></p>
+        <small>Transform your career with real-time projects and expert guidance!</small>
+    </div>
+
+    <h2 class="text-center page-title">User Management Portal</h2>
+
+    <div class="row">
+
+        <!-- User Form -->
+        <div class="col-md-5">
+            <div class="card p-4">
+                <h4 class="mb-3">Register New User</h4>
+
+                <form action="/register" method="post">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" class="form-control"
+                               placeholder="Enter first name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" class="form-control"
+                               placeholder="Enter last name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" class="form-control"
+                               placeholder="Enter email" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Create User</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="col-md-7">
+            <div class="card p-4">
+                <h4 class="mb-3">Existing Users</h4>
+
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Given Name</th>
+                        <th>Family Name</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- THYMELEAF LOOP HERE -->
+                    <tr th:each="user : ${profiles}">
+                        <td th:text="${user.id}">ID</td>
+                        <td th:text="${user.firstName}">First Name</td>
+                        <td th:text="${user.lastName}">Last Name</td>
+                        <td th:text="${user.email}">Email</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-4 mb-3">
+        <small>&copy; 2025 Nextgen Institute of Technology. All rights reserved.</small>
+    </footer>
+
+</div>
+
+</body>
+</html>
